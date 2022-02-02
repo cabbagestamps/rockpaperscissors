@@ -36,11 +36,9 @@ function game() {
   let wins = 0;
   let draws = 0;
   let losses = 0;
-  let gamesPlayed = 0;
   let gamesLeft = 5
-  while (gamesPlayed < 5) {
+  while (gamesLeft > 0) {
     playRound()
-    ++gamesPlayed;
     --gamesLeft;
   }  
 
