@@ -52,28 +52,29 @@ playRound();
 console.log(`Wins =  ${wins}`);
 console.log(`Draws = ${draws}`);
 console.log(`Losses = ${losses}`);
-playRound();
-console.log(`Wins =  ${wins}`);
-console.log(`Draws = ${draws}`);
-console.log(`Losses = ${losses}`);
-playRound();
-console.log(`Wins =  ${wins}`);
-console.log(`Draws = ${draws}`);
-console.log(`Losses = ${losses}`);
+
 playRound();
 console.log(`Wins =  ${wins}`);
 console.log(`Draws = ${draws}`);
 console.log(`Losses = ${losses}`);
 
-   
-  if (wins > losses) {
+playRound();
+console.log(`Wins =  ${wins}`);
+console.log(`Draws = ${draws}`);
+console.log(`Losses = ${losses}`);
+
+playRound();
+console.log(`Wins =  ${wins}`);
+console.log(`Draws = ${draws}`);
+console.log(`Losses = ${losses}`);
+ 
+if (wins > losses) {
     return 'A grand victory';
-  } else if (wins < losses) {
+} else if (wins < losses) {
     return 'A miserable defeat';
-  } else  {
+} else  {
     return 'A confusing draw';
-   
-  };
+};
 
   function playRound(playerSelection, computerSelection) { 
     playerSelection = prompt('Choose your weapon:', '');
@@ -83,9 +84,9 @@ console.log(`Losses = ${losses}`);
         alert('Round cancelled')  
         return;
       } else {
-        if ((playerSelection.toLowerCase() === 'rock' && computerSelection.toLowerCase() === 'scissors') 
-        || (playerSelection.toLowerCase() === 'paper' && computerSelection.toLowerCase() === 'rock')
-        || (playerSelection.toLowerCase() === 'scissors' && computerSelection.toLowerCase() === 'paper')) {
+        if ((playerSelection.toLowerCase() === 'rock' && computerSelection.toLowerCase() === 'scissors') ||
+              (playerSelection.toLowerCase() === 'paper' && computerSelection.toLowerCase() === 'rock') || 
+              (playerSelection.toLowerCase() === 'scissors' && computerSelection.toLowerCase() === 'paper')) {
         alert(`You selected: ${playerSelection}. The computer plays ${computerSelection}. You win!`);
         return ++wins;
       } else if (playerSelection.toLowerCase() === computerSelection.toLowerCase())  {
