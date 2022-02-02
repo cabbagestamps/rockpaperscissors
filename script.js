@@ -28,17 +28,80 @@ if (randomInt === 0) {
 // im thinking about it and theres proably smart way or doing it with either switch break format or that ? conditional thing
 // neither of which i understand so we'll try it if else way first
 // also look up how to go over lines
-function playRound(playerSelection, computerSelection) {
-    
-    if ((playerSelection.toLowerCase() === 'rock' && computerSelection.toLowerCase() === 'scissors') 
-       || (playerSelection.toLowerCase() === 'paper' && computerSelection.toLowerCase() === 'rock')
-       || (playerSelection.toLowerCase() === 'scissors' && computerSelection.toLowerCase() === 'paper')) {
-        console.log('You win');
-    } else if (playerSelection.toLowerCase() === computerSelection.toLowerCase())  {
-        console.log("It's a draw!")
-    } else {
-        console.log('You lose'); 
-       }
+
+// playROund() will go inside game(), possibly computerPlay() as well
+// game() plays 5 rounds, keeps score, reports a winner at end
+// playRound() needs to return, perhaps, 1 for win, 0 for draw, -1 for loss, then check at the end of game if score is positive
+// score = score + return of playRound()
+// or perhaps it would be better to increment ++ --
+// return ++score or --score (with the right position of ++ of course)
+// example 2 wins 2 draw and 1 loss score = 1, positive therefore win
+// however doesnt actually keep score eg doesnt tell you you have 2 wins 2 draws and 1 loss
+// three different variables? increment each
+// then check after 5 rounds if wins more than loss
+function game() {
+  let wins = 0;
+  let draws = 0;
+  let losses = 0;
+playRound();
+console.log(`Wins =  ${wins}`);
+console.log(`Draws = ${draws}`);
+console.log(`Losses = ${losses}`);
+
+playRound(); 
+console.log(`Wins =  ${wins}`);
+console.log(`Draws = ${draws}`);
+console.log(`Losses = ${losses}`);
+playRound();
+console.log(`Wins =  ${wins}`);
+console.log(`Draws = ${draws}`);
+console.log(`Losses = ${losses}`);
+playRound();
+console.log(`Wins =  ${wins}`);
+console.log(`Draws = ${draws}`);
+console.log(`Losses = ${losses}`);
+playRound();
+console.log(`Wins =  ${wins}`);
+console.log(`Draws = ${draws}`);
+console.log(`Losses = ${losses}`);
+
+   
+  if (wins > losses) {
+    return 'A grand victory';
+  } else if (wins < losses) {
+    return 'A miserable defeat';
+  } else  {
+    return 'A confusing draw';
+   
+  };
+
+  function playRound(playerSelection, computerSelection) { 
+    playerSelection = prompt('Choose your weapon:', '');
+    computerSelection = computerPlay();
+    // couldnt figure out hopw to cancel the game outright, but can cancel each round
+    if (playerSelection === null) {
+        alert('Round cancelled')  
+        return;
+      } else {
+        if ((playerSelection.toLowerCase() === 'rock' && computerSelection.toLowerCase() === 'scissors') 
+        || (playerSelection.toLowerCase() === 'paper' && computerSelection.toLowerCase() === 'rock')
+        || (playerSelection.toLowerCase() === 'scissors' && computerSelection.toLowerCase() === 'paper')) {
+        alert(`You selected: ${playerSelection}. The computer plays ${computerSelection}. You win!`);
+        return ++wins;
+      } else if (playerSelection.toLowerCase() === computerSelection.toLowerCase())  {
+        alert(`You selected: ${playerSelection}. The computer plays ${computerSelection}. It's a draw!`);
+        return ++ draws;
+      } else if (playerSelection === '') {
+        alert(`You didn't select anything! The computer plays ${computerSelection}. You lose!`)
+        return ++losses;
+      } else {
+        alert(`You selected: ${playerSelection}. The computer plays ${computerSelection}. You lose!`); 
+        return ++losses;
+      };  
+    };
+  };
+};  
+// const computerSelection = computerPlay();   
 // so this is functional, probably only need to find out how to 
 // i guess you go 'let computerSelction = computerPLay' or something maybe, 
 // maybe theres a better way to get stuff from functons
@@ -55,4 +118,4 @@ function playRound(playerSelection, computerSelection) {
 // so i think its a problem for another function
 // eg function playGame()
 // actually maybe not but its ok
-}
+
