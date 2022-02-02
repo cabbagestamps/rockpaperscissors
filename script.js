@@ -2,17 +2,10 @@
 function computerPlay() {
 let randomInt = Math.floor(Math.random() * 3);  
 if (randomInt === 0) {
-    console.log('Rock');
-    console.log(randomInt);
     return 'Rock';
   } else if (randomInt === 1) {
-    
-    console.log('Paper');
-    console.log(randomInt);
     return 'Paper';
   } else {
-    console.log ('Scissors');
-    console.log(randomInt);
     return 'Scissors';
   }
 };
@@ -43,41 +36,28 @@ function game() {
   let wins = 0;
   let draws = 0;
   let losses = 0;
-playRound();
-console.log(`Wins =  ${wins}`);
-console.log(`Draws = ${draws}`);
-console.log(`Losses = ${losses}`);
+  let gamesPlayed = 0;
+  let gamesLeft = 5
+  while (gamesPlayed < 5) {
+    playRound()
+    ++gamesPlayed;
+    --gamesLeft;
+  }  
 
-playRound(); 
-console.log(`Wins =  ${wins}`);
-console.log(`Draws = ${draws}`);
-console.log(`Losses = ${losses}`);
-
-playRound();
-console.log(`Wins =  ${wins}`);
-console.log(`Draws = ${draws}`);
-console.log(`Losses = ${losses}`);
-
-playRound();
-console.log(`Wins =  ${wins}`);
-console.log(`Draws = ${draws}`);
-console.log(`Losses = ${losses}`);
-
-playRound();
 console.log(`Wins =  ${wins}`);
 console.log(`Draws = ${draws}`);
 console.log(`Losses = ${losses}`);
  
 if (wins > losses) {
-    return 'A grand victory';
+    return alert('A grand victory');
 } else if (wins < losses) {
-    return 'A miserable defeat';
+    return alert('A miserable defeat');
 } else  {
-    return 'A confusing draw';
+    return alert('A confusing draw');
 };
 
   function playRound(playerSelection, computerSelection) { 
-    playerSelection = prompt('Choose your weapon:', '');
+    playerSelection = prompt(`${gamesLeft} rounds remaining. Choose your weapon:`, '');
     computerSelection = computerPlay();
     // couldnt figure out hopw to cancel the game outright, but can cancel each round
     if (playerSelection === null) {
