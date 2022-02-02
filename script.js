@@ -36,10 +36,10 @@ function game() {
   let wins = 0;
   let draws = 0;
   let losses = 0;
-  let gamesLeft = 5
-  while (gamesLeft > 0) {
+  let roundsLeft = 5
+  while (roundsLeft > 0) {
     playRound()
-    --gamesLeft;
+    --roundsLeft;
   }  
 
 console.log(`Wins =  ${wins}`);
@@ -55,7 +55,7 @@ if (wins > losses) {
 };
 
   function playRound(playerSelection, computerSelection) { 
-    playerSelection = prompt(`${gamesLeft} rounds remaining. Choose your weapon:`, '');
+    playerSelection = prompt(`${roundsLeft} rounds remaining. Choose your weapon:`, '');
     computerSelection = computerPlay();
     // couldnt figure out hopw to cancel the game outright, but can cancel each round
     if (playerSelection === null) {
