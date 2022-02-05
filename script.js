@@ -39,7 +39,7 @@ function game() {
       } else if (playerSelection === '') {
         alert(`You didn't select anything! The computer plays ${computerSelection}. You lose!`)
         return ++losses;
-      } else if (isValidEntry) {
+      } else if (!isValidEntry) {
          alert(`${playerSelection} is not a valid weapon. Please choose another.`)
          roundsLeft = roundsLeft + 1;
          return;
