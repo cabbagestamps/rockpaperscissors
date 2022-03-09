@@ -16,11 +16,6 @@ let wins = 0;
 let draws = 0;
 let losses = 0;
 let roundsPlayed = 0
-//  while (roundsLeft > 0) {
- //   playRound() 
- //   --roundsLeft;
- // }
-
 
 function playRound(playerSelection, computerSelection) { 
     computerSelection = computerPlay();
@@ -49,6 +44,20 @@ function updateResults(){
   document.getElementById('wins').textContent = wins;
   document.getElementById('draws').textContent = draws;
   document.getElementById('losses').textContent = losses;
+  if (roundsPlayed === 5) {
+    compSelDiv.textContent = 'Game over';
+    if (wins > losses) {
+      result.textContent = 'A grand victory!';
+    } else if (losses > wins) {
+      result.textContent = 'A dismal defeat.';
+    } else {
+      result.textContent = 'A confusing draw...';
+    }
+    wins = 0;
+    losses = 0;
+    draws = 0;
+    roundsPlayed = 0;
+  };
 };
 
 let result = document.getElementById('result');
@@ -70,6 +79,7 @@ paperButton.addEventListener('click', () => {
   compSelDiv.textContent = 'The Computer chose: ' + compChoiceText;
   result.textContent = 'This round resulted in a: ' + roundResult;
   updateResults();
+
 });
 
 let scissorsButton = document.querySelector('#scissors');
