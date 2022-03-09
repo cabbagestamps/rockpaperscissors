@@ -46,6 +46,7 @@ function updateResults(){
   document.getElementById('losses').textContent = losses;
   if (roundsPlayed === 5) {
     compSelDiv.textContent = 'Game over';
+    resultsDiv.appendChild(newGameButton);
     if (wins > losses) {
       result.textContent = 'A grand victory!';
     } else if (losses > wins) {
@@ -60,31 +61,41 @@ function updateResults(){
   };
 };
 
+let newGameButton = document.createElement('button');
+newGameButton.textContent = 'New game?';
+newGameButton.addEventListener('click', () => {
+  wins = 0;
+  losses = 0;
+  draws = 0;
+  roundsPlayed = 0;
+  compSelDiv.textContent = '';
+  result.textContent = '';
+  updateResults();
+  resultsDiv.removeChild(newGameButton);
+})
+
+let resultsDiv = document.getElementById('results')
 let result = document.getElementById('result');
 let compSelDiv = document.getElementById('compSelDiv') ;
 
 let rockButton = document.querySelector('#rock');
 rockButton.addEventListener('click', () => {
-  console.log('rock');
   playRound('rock');
   compSelDiv.textContent = 'The Computer chose: ' + compChoiceText;
   result.textContent = 'This round resulted in a: ' + roundResult;
-  updateResults();
+  updateResults(); 
 });
 
 let paperButton = document.querySelector('#paper');
 paperButton.addEventListener('click', () => {
-  console.log('paper');
   playRound('paper');
   compSelDiv.textContent = 'The Computer chose: ' + compChoiceText;
   result.textContent = 'This round resulted in a: ' + roundResult;
   updateResults();
-
 });
 
 let scissorsButton = document.querySelector('#scissors');
 scissorsButton.addEventListener('click', () => {
-  console.log('scissors');
   playRound('scissors');
   compSelDiv.textContent = 'The Computer chose: ' + compChoiceText;
   result.textContent = 'This round resulted in a: ' + roundResult;
