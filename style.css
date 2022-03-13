@@ -8,9 +8,6 @@ p {
 
 .content {
     background-color: white;
-    display: flex;
-    align-items: flex-start;
-    gap: 50px;
 }
 
 button {
@@ -24,25 +21,17 @@ button {
     font-size: 16px;
 }
 
-#options {
-    display: flex;
-    flex-direction: column;
-}
-
-.buttons {
-    display: flex;
-    flex-direction: row;
-}
-
-.leftItems {
-    display: flex;
-    flex-direction: column;
-}
-
 table {
     text-align: center;
+    border: 1px solid black;
+    margin-bottom: 15px;
 }
 th {
-    padding: 0 5px 15px 5px; 
+    padding: 0 5px 0px 5px; 
+    border: 1px solid black;
+}
+
+td {
+    border: 1px solid black;
 }
 

@@ -10,40 +10,35 @@
 </head>
 <body>
     <h1>Rock Paper Scissors</h1>
+    <table id='table'>
+        <tr id ='tallyHeadings'>
+            <th>Rounds Played</th>
+            <th>Wins</th>
+            <th>Losses</th>
+            <th>Draws</th>
+        </tr>  
+        <tr id='resultData'>
+            <td id ='numRounds'>0</td>
+            <td id='wins'>0</td>
+            <td id='losses'>0</td>
+            <td id='draws'>0</td>
+        </tr>  
+    </table>
     <div class='content'>
-        <div class='leftItems'>
+        
             <div id='options'>
                 <p>Play The Game: </p>
                 <div class='buttons'>
-                    <button id='rock'>Rock</button>
-                    <button id='paper'>Paper</button>
-                    <button id='scissors'>Scissors</button>
+                    <button class='fightButton' id='rock'>Rock</button>
+                    <button class='fightButton' id='paper'>Paper</button>
+                    <button class='fightButton' id='scissors'>Scissors</button>
                 </div>
                 
             </div>
-            
-            
             <div id='results'>
                 <div id='compSelDiv'></div>
                 <div id='result'></div>
             </div>
-        </div>
-        
-
-        <table id='table'>
-            <tr id ='tallyHeadings'>
-                <th>Rounds Played</th>
-                <th>Wins</th>
-                <th>Losses</th>
-                <th>Draws</th>
-            </tr>  
-            <tr id='resultData'>
-                <td id ='numRounds'></td>
-                <td id='wins'></td>
-                <td id='losses'></td>
-                <td id='draws'></td>
-            </tr>  
-        </table>
     </div>
     
 </body>
