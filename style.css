@@ -1,37 +1,61 @@
 * {
     font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #DEB887;
+    color: #333333;
 }
 
+h1 {
+   color: #9c3523;
+}
+
+
+#results,
 p {
-    margin: 0
-}
-
-.content {
-    background-color: white;
+    font-size: 18px;
+    margin: 0;
 }
 
 button {
-    color: white;
-    background-color: brown;
+    color: #333333;
+    background-color: #f0ffff;
     width: 100px;
     height: 30px;
     font-weight: 600;
-    border: 2px solid black;
+    border: 2px solid #666a86;
     margin: 15px 15px 15px 0;
     font-size: 16px;
+    border-radius: 4px; 
+}
+
+button:hover {
+    background-color: #e2f1f1;
+    cursor: pointer;
+}
+
+button:active {
+    transform: translateY(1px)
+}
+
+button.inactive {
+    cursor: not-allowed;
 }
 
 table {
     text-align: center;
-    border: 1px solid black;
     margin-bottom: 15px;
+    background-color: #666a86;
+    border-radius: 4px;
 }
+
 th {
     padding: 0 5px 0px 5px; 
-    border: 1px solid black;
+    border: 1px solid #666a86;
+    background-color: #f0ffff;
 }
 
 td {
-    border: 1px solid black;
-}
+    border: 1px solid #666a86;
+    background-color: #f0ffff;
+}    
+    
 

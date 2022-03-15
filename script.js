@@ -12,11 +12,6 @@ if (randomInt === 0) {
   }
 };
 
-let wins = 0;
-let draws = 0;
-let losses = 0;
-let roundsPlayed = 0
-
 function playRound(playerSelection, computerSelection) { 
     computerSelection = computerPlay();
   if ((playerSelection === 'rock' && computerSelection === 'scissors') ||
@@ -36,10 +31,14 @@ function playRound(playerSelection, computerSelection) {
   };  
 };
 
+let wins = 0;
+let draws = 0;
+let losses = 0;
+let roundsPlayed = 0;
 let roundResult;
 let compChoiceText;
 
-function updateResults(){
+function updateResults() {
   document.getElementById('numRounds').textContent = roundsPlayed;
   document.getElementById('wins').textContent = wins;
   document.getElementById('draws').textContent = draws;
@@ -47,6 +46,12 @@ function updateResults(){
   if (roundsPlayed === 5) {
     compSelDiv.textContent = 'The Computer chose ' + compChoiceText;
     result.textContent = 'This round resulted in a ' + roundResult;
+    rockButton.removeEventListener('click', pressRockButton);
+    paperButton.removeEventListener('click', pressPaperButton);
+    scissorsButton.removeEventListener('click', pressScissorsButton);
+    rockButton.classList.add('inactive') 
+      paperButton.classList.add('inactive') 
+      scissorsButton.classList.add('inactive') 
     setTimeout(() => {
       compSelDiv.textContent = 'Game over';
       if (wins > losses) {
@@ -57,14 +62,17 @@ function updateResults(){
         result.textContent = 'A confusing draw...';
       }
       resultsDiv.appendChild(newGameButton);
-    }, 1000)
-    
     wins = 0;
     losses = 0;
     draws = 0;
     roundsPlayed = 0;
+    }, 2000)
   };
 };
+
+
+
+
 
 let newGameButton = document.createElement('button');
 newGameButton.textContent = 'New game?';
@@ -77,34 +85,47 @@ newGameButton.addEventListener('click', () => {
   result.textContent = '';
   updateResults();
   resultsDiv.removeChild(newGameButton);
-})
+  rockButton.addEventListener('click', pressRockButton);
+  paperButton.addEventListener('click', pressPaperButton);
+  scissorsButton.addEventListener('click', pressScissorsButton); 
+  rockButton.classList.remove('inactive') 
+  paperButton.classList.remove('inactive') 
+  scissorsButton.classList.remove('inactive') 
+});
 
-let resultsDiv = document.getElementById('results')
+let resultsDiv = document.getElementById('results');
 let result = document.getElementById('result');
-let compSelDiv = document.getElementById('compSelDiv') ;
+let compSelDiv = document.getElementById('compSelDiv');
 
 let rockButton = document.querySelector('#rock');
-rockButton.addEventListener('click', () => {
+rockButton.addEventListener('click', pressRockButton);
+
+let paperButton = document.querySelector('#paper');
+paperButton.addEventListener('click', pressPaperButton);
+
+let scissorsButton = document.querySelector('#scissors');
+scissorsButton.addEventListener('click', pressScissorsButton);
+
+
+function pressRockButton() {
   playRound('rock');
   compSelDiv.textContent = 'The Computer chose ' + compChoiceText;
   result.textContent = 'This round resulted in a ' + roundResult;
   updateResults(); 
-}); 
+};
 
-let paperButton = document.querySelector('#paper');
-paperButton.addEventListener('click', () => {
+function pressPaperButton() {
   playRound('paper');
   compSelDiv.textContent = 'The Computer chose ' + compChoiceText;
   result.textContent = 'This round resulted in a ' + roundResult;
   updateResults();
-}); 
+};
 
-let scissorsButton = document.querySelector('#scissors');
-scissorsButton.addEventListener('click', () => {
+function pressScissorsButton() {
   playRound('scissors');
   compSelDiv.textContent = 'The Computer chose ' + compChoiceText;
   result.textContent = 'This round resulted in a ' + roundResult;
   updateResults();
-}); 
+};
 
 
