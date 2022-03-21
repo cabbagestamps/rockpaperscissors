@@ -75,7 +75,7 @@ function updateResults() {
 
 
 let newGameButton = document.createElement('button');
-newGameButton.textContent = 'New game?';
+newGameButton.textContent = 'New game';
 newGameButton.addEventListener('click', () => {
   wins = 0;
   losses = 0;
